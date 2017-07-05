@@ -6,13 +6,15 @@ import { imageBaseUrl } from '../constants/Config'
 export default class MovieDetail extends Component {
   render(){
     const { detail } = this.props
-    console.log(detail)
+    const credits = detail.credits && detail.credits.cast.map(item=> <li key={item.id}><Link to={`/person/${item.id}`}>{item.name}</Link></li>)
 
       return <div>
-        <h1>Show Detail</h1>
-        <h3>{detail.name}</h3>
+        <h1>{detail.name}</h1>
         <img src={`${imageBaseUrl}w154/${detail.poster_path}`} alt=""/>
         <p>{detail.overview}</p>
+        <ul>
+          {credits}
+        </ul>
       </div>
   }
 

@@ -1,5 +1,4 @@
-import { compose, applyMiddleware, createStore } from 'redux'
-import {persistStore, autoRehydrate} from 'redux-persist'
+import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
 
 import reducers from './reducers'

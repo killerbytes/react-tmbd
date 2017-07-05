@@ -7,26 +7,25 @@ import Shows from '../components/Shows';
 import People from '../components/People';
 import Genres from '../components/Genres';
 
-import { fetchMovies, fetchShows, fetchGenres, fetchPeople } from '../actions/entityActions'
+import { fetchMovies, fetchGenres, fetchShows, fetchPeople } from '../actions/entityActions'
 
 
 
 class EntityListContainer extends Component {
-    _loadData =(params=this.props.match.params)=>{
-        const {match} = this.props
+    _loadData =(params=this.props)=>{
+        const {match} = params
         switch(true){
             case /^\/people/.test(match.path):
-                this.props.dispatch(fetchPeople(params.category))
+                this.props.dispatch(fetchPeople(match.params.category))
                 break;
             case /^\/shows/.test(match.path):
-                this.props.dispatch(fetchShows(params.category))
+                this.props.dispatch(fetchShows(match.params.category))
                 break;
             case /^\/genre/.test(match.path):
-                console.log(match)
-                // this.props.dispatch(fetchGenres(params.category, params.id))
+                this.props.dispatch(fetchGenres(match.params.category, match.params.id))
                 break;
             default:
-                this.props.dispatch(fetchMovies(params.category))
+                this.props.dispatch(fetchMovies(match.params.category))
         }
 
 
@@ -36,10 +35,9 @@ class EntityListContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        console.log(nextProps.match.params, this.props.match.params)
         const { match } = this.props
         if(match.params.category !== nextProps.match.params.category){
-            this._loadData(nextProps.match.params)
+            this._loadData(nextProps)
         }
     }
 

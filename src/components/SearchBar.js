@@ -20,9 +20,10 @@ export default class SearchBar extends Component {
     }
     render(){
         const { search } = this.props.search
-        const mappedSearch = search.results && search.results.map(movie=> {
-            const title = movie.title || movie.name
-            return <li key={movie.id}><Link to={`/${movie.media_type}/${movie.id}`}>{title}</Link></li>
+        const mappedSearch = search.results && search.results.map(item=> {
+            const title = item.title || item.name
+            const date = item.release_date || item.first_air_date 
+            return <li key={item.id}><Link to={`/${item.media_type}/${item.id}`}>{title}</Link> {item.media_type}, {date}</li>
         })
         return <div>
             <form action="">

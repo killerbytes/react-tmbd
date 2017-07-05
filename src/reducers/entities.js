@@ -1,5 +1,7 @@
 export default function reducer(state={
-    detail: {},
+    detail: {
+        poster_path: ''
+    },
     list: {},
     similar: {},
     fetching: false,

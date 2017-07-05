@@ -6,23 +6,20 @@ import MovieDetail from '../components/MovieDetail.js'
 import ShowDetail from '../components/ShowDetail.js'
 import PersonDetail from '../components/PersonDetail.js'
 
-import { fetchDetail, fetchGenresIfNeeded, fetchSimilar } from '../actions/entityActions'
+import { fetchMovie, fetchPerson, fetchShow, fetchSimilar } from '../actions/entityActions'
 
 
 class EntityContainer extends Component {
     _loadData =(params = this.props.match.params)=>{
         switch(params.entity){
             case 'person':
-                this.props.dispatch(fetchDetail(params.id, params.entity))
+                this.props.dispatch(fetchPerson(params.id, params.entity))
                 break;
             case 'tv':
-                this.props.dispatch(fetchDetail(params.id, params.entity))
+                this.props.dispatch(fetchShow(params.id))
                 break;
             default:
-                // this.props.dispatch(fetchGenresIfNeeded(params.entity))
-                this.props.dispatch(fetchDetail(params.id, params.entity))
-                this.props.dispatch(fetchSimilar(params.id))
-
+                this.props.dispatch(fetchMovie(params.id))
         }
 
     }
@@ -38,7 +35,7 @@ class EntityContainer extends Component {
     }
     
     render(){
-        const {entities, match } = this.props
+        const {match } = this.props
         switch(match.params.entity){
             case 'person':
                 return <PersonDetail {...this.props.entities}/>

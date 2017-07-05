@@ -1,10 +1,13 @@
 import axios from 'axios'
 import { apiUrl, apiKey } from '../constants/Config'
 
-export function fetchDetail(id, entity){
+export function fetchMovie(id){
     return function(dispatch){
-        dispatch({ type: "FETCH_DETAIL" })
-        axios.get(`${apiUrl}/${entity}/${id}?${apiKey}&language=en-US`)
+        dispatch({
+            type: "FETCH_DETAIL"
+        })
+        
+        axios.get(`${apiUrl}/movie/${id}?${apiKey}&language=en-US&append_to_response=credits,similar`)
             .then(function (res) {
                 dispatch({
                     type: "FETCH_DETAIL_FULFILLED",
@@ -15,7 +18,6 @@ export function fetchDetail(id, entity){
             .catch(function (error) {
                 console.log(error);
             });
-        
     }
 }
 
@@ -35,7 +37,6 @@ export function fetchMovies(category, page=1){
     }
 }
 
-
 export function fetchSimilar(id, page=1){
     return function(dispatch){
         axios.get(`${apiUrl}/movie/${id}/similar?${apiKey}&language=en-US&page=1`)
@@ -52,6 +53,23 @@ export function fetchSimilar(id, page=1){
     }
 }
 
+export function fetchShow(id){
+    return function(dispatch){
+        dispatch({ type: "FETCH_DETAIL" })
+        axios.get(`${apiUrl}/tv/${id}?${apiKey}&language=en-US&append_to_response=credits`)
+            .then(function (res) {
+                dispatch({
+                    type: "FETCH_DETAIL_FULFILLED",
+                    payload: res.data
+                })
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        
+    }
+}
 
 export function fetchShows(category, page=1){
     console.log(category)
@@ -67,6 +85,24 @@ export function fetchShows(category, page=1){
             .catch(function (error) {
                 console.log(error);
             });
+    }
+}
+
+export function fetchPerson(id){
+    return function(dispatch){
+        dispatch({ type: "FETCH_DETAIL" })
+        axios.get(`${apiUrl}/person/${id}?${apiKey}&language=en-US&append_to_response=movie_credits,tv_credits`)
+            .then(function (res) {
+                dispatch({
+                    type: "FETCH_DETAIL_FULFILLED",
+                    payload: res.data
+                })
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        
     }
 }
 
