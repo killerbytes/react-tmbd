@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
-import { Link, Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import EntityListContainer from './EntityListContainer'
 import EntityContainer from './EntityContainer'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
 const Home = ()=> {
-  return <h1>Home</h1>
+  return (
+    <div className="container">
+      <h1>Home</h1>
+    </div>
+  )
 
 }
 
@@ -30,16 +35,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header>
-
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/movies">Movies</Link>
-            <Link to="/shows">TV</Link>
-            <Link to="/people">People</Link>
-          </nav>
-        </header>
-        <SearchBar {...this.props}/>
+        <Header />
+        <div className="container">
+          <SearchBar {...this.props}/>
+        </div>
         <Main />
       </div>
     )

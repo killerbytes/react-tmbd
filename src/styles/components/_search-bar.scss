@@ -1,0 +1,26 @@
+.search-bar{
+  position: relative;
+  input{
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+  }
+  ul{
+    display: none;
+    @include list-default;
+    background-color: #FFF;
+    position: absolute;
+    width: 100%;
+    border: 1px solid $border-color;
+    &.show{
+      display: block;
+    }
+  }
+  li{
+    padding: 5px 1rem;
+    display: block;
+    &:hover{
+      background-color: darken(#FFF, 10%)
+    }
+  }
+}

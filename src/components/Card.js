@@ -6,14 +6,13 @@ import { imageBaseUrl } from '../constants/Config'
 export default class MovieDetail extends Component {
   render(){
     const item = this.props;
-
-      return <div className="card">
-        <div className="card-image">
-          <Link to={`/movie/${item.id}`}><img src={`${imageBaseUrl}w92/${item.poster_path}`} alt=""/></Link>
-        </div>
-        <div className="card-content">
-          <Link to={`/movie/${item.id}`}>{item.title}</Link>
-        </div>
+    const title = item.type === 'tv' ? item.name : item.title
+    const type = item.type || 'movie'
+      return <div>
+        <Link to={`/${type}/${item.id}`}><img src={`${imageBaseUrl}w154/${item.poster_path}`} alt=""/></Link>
+        <p className="card-content">
+          <Link to={`/${type}/${item.id}`}>{ title }</Link>
+        </p>
       </div>   
   }
 

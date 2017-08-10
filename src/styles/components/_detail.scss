@@ -1,0 +1,14 @@
+.detail{
+  display: flex;
+  .meta{
+    margin-left: 1rem;
+  }
+  .genres{
+    li{
+      display: inline-block;
+    }
+  }
+  ul{
+    @include list-default;
+  }
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "abstract/variables";
+@import "abstract/mixins";
+@import "components/label";
+@import "components/header";
+@import "components/search-bar";
+@import "components/cards";
+@import "components/people";
+@import "components/detail";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;    
+}
+
+
+.container{
+    max-width: 1100px;
+    margin: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+ul{
+    @include list-default;
+}
+

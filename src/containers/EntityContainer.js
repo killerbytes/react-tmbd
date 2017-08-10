@@ -6,7 +6,7 @@ import MovieDetail from '../components/MovieDetail.js'
 import ShowDetail from '../components/ShowDetail.js'
 import PersonDetail from '../components/PersonDetail.js'
 
-import { fetchMovie, fetchPerson, fetchShow, fetchSimilar } from '../actions/entityActions'
+import { fetchMovie, fetchPerson, fetchShow } from '../actions/entityActions'
 
 
 class EntityContainer extends Component {

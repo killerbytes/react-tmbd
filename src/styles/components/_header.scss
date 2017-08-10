@@ -1,0 +1,38 @@
+header{
+  background-color: $red;
+  a{
+    color: #FFF;
+    text-decoration: none;
+    display: block;
+  }
+  a:hover{
+    background-color: darken($red, 10);
+  }
+  ul{
+    @include list-default;
+  }
+  .menu{
+    > li{
+        display: inline-block;
+        a{
+          padding: 1rem;
+        }
+        ul{
+          display: none;
+        }
+        &:hover{
+          ul{
+            display: block;
+          }
+        }
+      }
+  }
+  .sub-menu{
+    background-color: $red;
+    position: absolute;
+    z-index: 1;
+    a{
+      padding: 1rem;
+    }
+  }
+}

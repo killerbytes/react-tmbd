@@ -1,0 +1,14 @@
+@mixin list-default{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@mixin respond-to($media){
+  @if $media == xs{
+    @media (max-width: $screen-xs-max) { @content }    
+  }
+  @else if $media == small {
+    @media (min-width: $screen-sm-min) {  @content }
+  }
+}
