@@ -1,23 +1,7 @@
 .people{
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 14px;
-  img{
-    width: 100%;
-    min-height: 220px;
-    max-height: 220px;
-  }
-  a{
-    font-weight: bold;
-    text-decoration: none;
-  }
-  p{
-    padding: 0 10px;
-  }
-  li{
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    min-width: 154px;
-    margin: 5px;
-    margin-bottom: 1rem;
-  }
+  @extend .cards;
+  
+}
+.person{
+  @extend .card;
 }

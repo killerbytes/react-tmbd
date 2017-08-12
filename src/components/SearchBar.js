@@ -39,6 +39,7 @@ export default class SearchBar extends Component {
         })
         return <div className="search-bar">
             <form>
+                <i className="fa fa-search"></i>
                 <input type="text" onChange={ this.handleSearch }/>
             </form>
             <ul className={this.state.listVisible ? " show" : ""}>{ mappedSearch }</ul>

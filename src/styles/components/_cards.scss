@@ -4,15 +4,11 @@
   flex-wrap: wrap;
   font-size: 14px;
   li{
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 154px;    
-    margin: 5px;
     margin-bottom: 1rem;
+    width: 100%;
   }
   img{
     width: 100%;
-    min-height: 220px;
-    max-height: 220px;
   }
   a{
     text-decoration: none;
@@ -20,7 +16,47 @@
     display: block;
   }
   p{
-    padding: 0 .5rem;    
+    padding: .5rem;    
+    margin: 0;
   }
+  .no-image{
+    font-size: 3rem;
+    border-radius: 0;
+  }
+  .image-bg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    img{
+      visibility: hidden;
+    }
+  }
+  @include respond-to(small){
+    li{
+      width: 25%;    
+    }
+    .card{
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 5px;
+    }
+    .no-image,
+    .image-bg{
+      width: 100%;
+      height: 324px;
+  
+    }
+  }
+  @include respond-to(medium){
+    li{
+      width: 16.66%;    
+    }
+    .no-image,
+    .image-bg{
+      height: 256px;
+    }
+
+  }
+    
 }
+
 

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
 @import "abstract/variables";
 @import "abstract/mixins";
 @import "components/label";
@@ -7,6 +8,7 @@
 @import "components/cards";
 @import "components/people";
 @import "components/detail";
+@import "components/no-image";
 
 *, *:before, *:after {
   box-sizing: border-box;

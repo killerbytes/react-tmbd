@@ -11,4 +11,7 @@
   @else if $media == small {
     @media (min-width: $screen-sm-min) {  @content }
   }
+  @else if $media == medium {
+    @media (min-width: $screen-md-min) {  @content }
+  }
 }

@@ -43,15 +43,16 @@ class EntityListContainer extends Component {
 
     render(){
         const {match} = this.props
+        const {category } = match.params
         switch(true){
             case /^\/people/.test(match.path):
                 return <People {...this.props.entities}/>
             case /^\/shows/.test(match.path):
-                return <Shows {...this.props.entities}/>
+                return <Shows category={category} {...this.props.entities}/>
             case /^\/genre/.test(match.path):
                 return <Genres {...this.props.entities}/>
             default:
-                return <Movies {...this.props.entities}/>
+                return <Movies category={category} {...this.props.entities}/>
         }
     }
 }
